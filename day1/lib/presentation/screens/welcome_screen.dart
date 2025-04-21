@@ -34,7 +34,27 @@ class WelcomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
-            
+              //description
+              const Text(
+                'Discover amazing products and shop with ease',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 60),
+
+              //login btn
+              AppButton(
+                text: 'Get Started',
+                onPressed: () {
+                  // Go to login screen when button is tapped
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginScreen()),
+                  );
+                },
+              ),
             ],
           ),
         ),
