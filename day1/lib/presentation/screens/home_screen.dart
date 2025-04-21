@@ -60,3 +60,14 @@ class HomeScreen extends StatelessWidget {
     ),
   ];
 
+    @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      //cart btn top bar
+      appBar: AppBar(
+        title: const Text('My Shop'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.shopping_cart),
+            onPressed: () {
+
