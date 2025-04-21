@@ -16,7 +16,7 @@ class AppButton extends StatelessWidget {
   });
 
   //btn info
-  const AppButton({
+  const AppButton.info({
     super.key,
     required this.text,
     required this.onPressed,
