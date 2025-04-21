@@ -70,4 +70,22 @@ class ProductTile extends StatelessWidget {
                 ],
               ),
             ),
+            //Add to cart btn and show msg
+            IconButton(
+              icon: const Icon(Icons.add_shopping_cart),
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('${product.name} added to cart'),
+                    duration: const Duration(seconds: 1),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
