@@ -70,4 +70,22 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.shopping_cart),
             onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Cart feature coming soon!')),
+              );
+            },
+          ),
+        ],
+      ),
+      //List down products
+      body: ListView.builder(
+        padding: const EdgeInsets.all(8.0),
+        itemCount: products.length,
+        itemBuilder: (context, index) {
+          return ProductTile(product: products[index]);
+        },
+      ),
+    );
+  }
+}
 
