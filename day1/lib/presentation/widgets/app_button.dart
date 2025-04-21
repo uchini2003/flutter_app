@@ -15,3 +15,12 @@ class AppButton extends StatelessWidget {
     this.textColor,
   });
 
+  //btn info
+  const AppButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.backgroundColor,
+    this.textColor,
+  });
+
