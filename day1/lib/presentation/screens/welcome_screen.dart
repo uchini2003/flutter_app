@@ -23,6 +23,17 @@ class WelcomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 40),
 
+              //text
+              const Text(
+                'Welcome to My Shop',
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+
             
             ],
           ),
