@@ -30,4 +30,32 @@ class _SplashScreenState extends State<SplashScreen> {
     }
   }
 
+  //layout for splash
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.shopping_cart,
+              size: 100,
+              color: Theme.of(context).primaryColor,
+            ),
+            const SizedBox(height: 24),
+            const Text(
+              'My Shop App',
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 
