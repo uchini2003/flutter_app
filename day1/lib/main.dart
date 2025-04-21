@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'presentation/screens/splash_screen.dart';
 
 void main() {
+  // Simpler approach to filter logs
+  if (kDebugMode) {
+    // Only show important logs
+    debugPrint = (String? message, {int? wrapWidth}) {
+      if (message != null && 
+          !message.contains('I/MESA') && 
+          !message.contains('exportSyncFdForQSRILocked') &&
+          !message.contains('handle 0x')) {
+        print(message);
+      }
+    };
+  }
+  
   runApp(const MyApp());
 }
 
