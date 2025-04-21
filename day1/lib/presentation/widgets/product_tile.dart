@@ -4,7 +4,6 @@ import '../screens/home_screen.dart';
 //depicts one product in list
 class ProductTile extends StatelessWidget {
   final Product product;
-  final Product product;
 
   const ProductTile({
     super.key,
