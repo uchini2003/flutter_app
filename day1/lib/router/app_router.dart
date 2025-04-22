@@ -25,3 +25,8 @@ import 'package:auto_route/auto route.dart';
   ],
 )
 
+class AppRouter extends _$AppRouter {
+  @override
+  List<AutoRoute> get routes => [];
+}
+
