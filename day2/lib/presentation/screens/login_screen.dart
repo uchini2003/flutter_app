@@ -44,11 +44,8 @@ class _LoginScreenState extends State<LoginScreen> {
       });
 
             try {
-        // For demonstration purposes, we'll simulate the API call
-        // In a real app, this would be an actual HTTP request
         await Future.delayed(const Duration(milliseconds: 1500));
         
-        // The task specifies these test credentials
         const validUsername = 'testaccount123';
         const validPassword = 'pasword123';
         
@@ -60,18 +57,18 @@ class _LoginScreenState extends State<LoginScreen> {
             context.router.replace(const HomeRoute());
           }
         } else {
-          // Failed login
+          //failed login
           setState(() {
             _errorMessage = 'Login failed. Please check your credentials.';
           });
         }
       } catch (e) {
-        // Handle any errors
+        //handle errors
         setState(() {
           _errorMessage = 'Connection error. Please try again.';
         });
       } finally {
-        // Reset loading state if component still mounted
+        //if component mounted reset loading state 
         if (mounted) {
           setState(() {
             _isLoading = false;
@@ -124,14 +121,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 16),
                 
-                // Password input box with eye icon for visibility toggle
+                //password input box with eye icon 
                 TextFormField(
                   controller: _passwordController,
                   decoration: InputDecoration(
                     labelText: 'Password',
                     border: const OutlineInputBorder(),
                     prefixIcon: const Icon(Icons.lock),
-                    // Add suffix icon for password visibility toggle
                     suffixIcon: IconButton(
                       icon: Icon(
                         _obscurePassword ? Icons.visibility_off : Icons.visibility,
@@ -144,7 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                     ),
                   ),
-                  obscureText: _obscurePassword, // Toggle based on state
+                  obscureText: _obscurePassword, 
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your password';
@@ -154,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 24),
                 
-                // Error message if login fails
+                //error message if login fails
                 if (_errorMessage != null)
                   Padding(
                     padding: const EdgeInsets.only(bottom: 16.0),
@@ -168,7 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
 
-                //Login button with loading state
+                //login button with loading state
                 _isLoading
                     ? const Center(child: CircularProgressIndicator())
                     : AppButton(
@@ -177,7 +173,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
 
 
-                // Test credentials hint
+                //test credentials hint
                 const SizedBox(height: 16),
                 const Text(
                   'Use test credentials: testaccount123 / pasword123',
