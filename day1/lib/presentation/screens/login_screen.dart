@@ -51,6 +51,34 @@ class _LoginScreenState extends State<LoginScreen> {
           }),
         );
 
+        //handle api response
+        if (response.statusCode == 200) {
+          // Successful login - navigate to home screen with AutoRoute
+          if (mounted) {
+            context.router.replace(const HomeRoute());
+          }
+        } else {
+          //show error message from API
+          setState(() {
+            _errorMessage = 'Login failed. Please check your credentials.';
+          });
+        }
+      } catch (e) {
+        //handle connectivity errors
+        setState(() {
+          _errorMessage = 'Connection error. Please try again.';
+        });
+      } finally {
+        //reset loading state if componentstill mounted
+        if (mounted) {
+          setState(() {
+            _isLoading = false;
+          });
+        }
+      }
+    }
+  }
+
     @override
   Widget build(BuildContext context) {
     return Scaffold(
