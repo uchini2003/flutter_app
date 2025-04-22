@@ -32,15 +32,13 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
-  void _login() {
+  //api login implementation
+  Future<void> _login() async {
     if (_formKey.currentState!.validate()) {
-      //go to home screen
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
-      );
-    }
-  }
+      setState(() {
+        _isLoading = true;
+        _errorMessage = null;
+      });
 
     @override
   Widget build(BuildContext context) {
