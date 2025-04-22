@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'presentation/screens/splash_screen.dart';
+import 'router/app_router.dart';
 
 /* void main() {
   // Simpler approach to filter logs

@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
+import '../../router/app_router.gr.dart';
 import '../widgets/app_button.dart';
 import 'login_screen.dart';
 import 'package:auto_route/auto_route.dart';
-import '../router/app_router.gr.dart'; 
 
 @RoutePage()
 class WelcomeScreen extends StatelessWidget {

@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
+import '../../router/app_router.gr.dart';
 import 'welcome_screen.dart';
 import 'package:auto_route/auto_route.dart'; 
-import '../router/app_router.gr.dart'; 
 
 //annotation for auto_route
 @RoutePage()

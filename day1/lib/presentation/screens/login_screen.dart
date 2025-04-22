@@ -4,13 +4,9 @@ import 'home_screen.dart';
 import 'package:auto_route/auto_route.dart'; 
 import 'package:http/http.dart' as http; 
 import 'dart:convert'; 
-import '../router/app_router.gr.dart';
 
-//annotation for auto_route
+// AutoRoute annotation
 @RoutePage()
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 

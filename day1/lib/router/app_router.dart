@@ -1,32 +1,21 @@
-import 'package:auto_route/auto route.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:my_shop_app/router/app_router.gr.dart';
 
-//route code generated automatically
-@MaterialAutoRouter(
-  replaceInRouteName: 'Screen,Route',
-  routes: <AutoRoute>[
-    //all app routes defined
-    AutoRoute(
-      path: '/',
-      page: SplashScreen,
-      initial: true,
-    ),
-    AutoRoute(
-      path: '/welcome',
-      page: WelcomeScreen,
-    ),
-    AutoRoute(
-      path: '/login',
-      page: LoginScreen,
-    ),
-    AutoRoute(
-      path: '/home',
-      page: HomeScreen,
-    ),
-  ],
-)
+@AutoRouterConfig(replaceInRouteName: 'Screen|Page,Route')
+class AppRouter extends RootStackRouter {
 
-class AppRouter extends _$AppRouter {
   @override
-  List<AutoRoute> get routes => [];
-}
+  RouteType get defaultRouteType => RouteType.material(); //.cupertino, .adaptive ..etc
+  
+  @override
+  List<AutoRoute> get routes => [
+    // HomeScreen is generated as HomeRoute because
+    // of the replaceInRouteName property
+    AutoRoute(page: HomeRoute.page),
+  ];
 
+  @override
+  List<AutoRouteGuard> get guards => [
+    // optionally add root guards here
+  ];
+}
