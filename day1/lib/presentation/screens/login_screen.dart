@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 import '../widgets/app_button.dart';
 import 'home_screen.dart';
+import 'package:auto_route/auto_route.dart'; 
+import 'package:http/http.dart' as http; 
+import 'dart:convert'; 
+import '../router/app_router.gr.dart';
+
+//annotation for auto_route
+@RoutePage()
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -15,7 +24,11 @@ class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
-    // Clean up when screen closes
+  //state variables for api laod & errors
+  bool _isLoading = false;
+  String? _errorMessage;
+
+  //Clean up when screen closes
   @override
   void dispose() {
     _emailController.dispose();
