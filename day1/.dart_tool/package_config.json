@@ -464,13 +464,13 @@
       "languageVersion": "3.4"
     },
     {
-      "name": "my_shop_app",
+      "name": "myShopApp",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2025-04-22T09:51:58.403957Z",
+  "generated": "2025-04-22T11:14:23.700619Z",
   "generator": "pub",
   "generatorVersion": "3.7.2",
   "flutterRoot": "file:///Users/uchini/fvm/versions/stable",
