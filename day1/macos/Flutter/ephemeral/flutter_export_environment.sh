@@ -1,6 +1,6 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=/Users/uchini/development/flutter"
+export "FLUTTER_ROOT=/Users/uchini/fvm/versions/stable"
 export "FLUTTER_APPLICATION_PATH=/Users/uchini/Documents/GitHub/flutter_app/day1"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"
