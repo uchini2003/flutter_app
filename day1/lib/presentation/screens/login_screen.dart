@@ -40,6 +40,17 @@ class _LoginScreenState extends State<LoginScreen> {
         _errorMessage = null;
       });
 
+          try {
+        //Using the API endpoint
+        final response = await http.post(
+          Uri.parse('/api/v1/testapi'),
+          headers: {'Content-Type': 'application/json'},
+          body: json.encode({
+            'userName': _usernameController.text,
+            'password': _passwordController.text,
+          }),
+        );
+
     @override
   Widget build(BuildContext context) {
     return Scaffold(
