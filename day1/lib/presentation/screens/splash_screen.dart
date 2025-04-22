@@ -1,8 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'welcome_screen.dart';
+import 'package:auto_route/auto_route.dart'; 
+import '../router/app_router.gr.dart'; 
 
-//splash screen nav for 2 sec
+//annotation for auto_route
+@RoutePage()
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -10,26 +13,7 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    _navigateToWelcome();
-  }
 
-
-   //remove screen from nav
-  _navigateToWelcome() async {
-    await Future.delayed(const Duration(seconds: 2));
-
-    if (mounted) {
-      // Replace screen with the welcome screen
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const WelcomeScreen()),
-      );
-    }
-  }
 
   //layout for splash
   @override
