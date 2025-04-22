@@ -13,7 +13,21 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _navigateToWelcome();
+  }
 
+  _navigateToWelcome() async {
+    await Future.delayed(const Duration(seconds: 2));
+
+    if (mounted) {
+      //nav update to use auto_route
+      context.router.replace(const WelcomeRoute());
+    }
+  }
 
   //layout for splash
   @override
