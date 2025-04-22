@@ -79,6 +79,31 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
+   // Mock login for testing (uses the test credentials from task)
+  void _mockLogin() {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        _isLoading = true;
+      });
+
+      // Simulate network delay
+      Future.delayed(const Duration(seconds: 1), () {
+        if (mounted) {
+          if (_usernameController.text == 'testaccount123' && 
+              _passwordController.text == 'password123') {
+            // Navigate using AutoRoute
+            context.router.replace(const HomeRoute());
+          } else {
+            setState(() {
+              _errorMessage = 'Invalid credentials. Try using the test account.';
+              _isLoading = false;
+            });
+          }
+        }
+      });
+    }
+  }
+
     @override
   Widget build(BuildContext context) {
     return Scaffold(
