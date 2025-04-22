@@ -161,3 +161,23 @@ class _LoginScreenState extends State<LoginScreen> {
                         text: 'Login',
                         onPressed: _login,
                       ),
+
+
+                // Test credentials hint
+                const SizedBox(height: 16),
+                const Text(
+                  'Use test credentials: testaccount123 / pasword123',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
