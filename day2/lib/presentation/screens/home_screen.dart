@@ -1,5 +1,5 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart'; // Added auto_route import
 import '../widgets/product_tile.dart';
 
 //store product info
@@ -19,6 +19,7 @@ class Product {
   });
 }
 
+// Added annotation for auto_route
 @RoutePage()
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -62,7 +63,7 @@ class HomeScreen extends StatelessWidget {
     ),
   ];
 
-    @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       //cart btn top bar
@@ -90,4 +91,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
