@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'presentation/screens/splash_screen.dart';
 
-void main() {
+/* void main() {
   // Simpler approach to filter logs
   if (kDebugMode) {
     // Only show important logs
@@ -20,7 +20,18 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key}); */
+
+  //Updated main.dart to use auto_route instead of direct navigation
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  MyApp({super.key});
+  
+  // Created app router instance for auto_route
+  final _appRouter = AppRouter();
 
 /*   @override
   Widget build(BuildContext context) {
