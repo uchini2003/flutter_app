@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_shop_app/router/app_router.gr.dart';
 import '../widgets/app_button.dart';
 import 'home_screen.dart';
 import 'package:auto_route/auto_route.dart'; 
@@ -46,25 +47,25 @@ class _LoginScreenState extends State<LoginScreen> {
           Uri.parse('/api/v1/testapi'),
           headers: {'Content-Type': 'application/json'},
           body: json.encode({
-            'userName': _usernameController.text,
+            'userName': _emailController.text,
             'password': _passwordController.text,
           }),
         );
 
-        //handle api response
+        //check if login worked
         if (response.statusCode == 200) {
-          // Successful login - navigate to home screen with AutoRoute
+          //go to home screen if successful
           if (mounted) {
             context.router.replace(const HomeRoute());
           }
         } else {
-          //show error message from API
+          //how error message from API
           setState(() {
             _errorMessage = 'Login failed. Please check your credentials.';
           });
         }
       } catch (e) {
-        //handle connectivity errors
+        //handle connection errors
         setState(() {
           _errorMessage = 'Connection error. Please try again.';
         });
@@ -76,31 +77,6 @@ class _LoginScreenState extends State<LoginScreen> {
           });
         }
       }
-    }
-  }
-
-   // Mock login for testing (uses the test credentials from task)
-  void _mockLogin() {
-    if (_formKey.currentState!.validate()) {
-      setState(() {
-        _isLoading = true;
-      });
-
-      // Simulate network delay
-      Future.delayed(const Duration(seconds: 1), () {
-        if (mounted) {
-          if (_usernameController.text == 'testaccount123' && 
-              _passwordController.text == 'password123') {
-            // Navigate using AutoRoute
-            context.router.replace(const HomeRoute());
-          } else {
-            setState(() {
-              _errorMessage = 'Invalid credentials. Try using the test account.';
-              _isLoading = false;
-            });
-          }
-        }
-      });
     }
   }
 
