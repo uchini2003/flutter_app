@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import '../widgets/app_button.dart';
 import 'login_screen.dart';
+import 'package:auto_route/auto_route.dart';
+import '../router/app_router.gr.dart'; 
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -49,11 +51,8 @@ class WelcomeScreen extends StatelessWidget {
               AppButton(
                 text: 'Get Started',
                 onPressed: () {
-                  // Go to login screen when button is tapped
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginScreen()),
-                  );
+                  //Changed nav to use auto_route
+                  context.router.push(const LoginRoute());
                 },
               ),
             ],
