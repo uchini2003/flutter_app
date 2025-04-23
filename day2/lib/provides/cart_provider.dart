@@ -14,3 +14,14 @@ class CartState {
       items: items ?? this.items,
     );
   }
+
+  //total price & qty of all items
+  double get totalPrice {
+    return items.values.fold(0, (total, item) => total + item.totalPrice);
+  }
+  
+  int get totalQuantity {
+    return items.values.fold(0, (total, item) => total + item.quantity);
+  }
+}
+
