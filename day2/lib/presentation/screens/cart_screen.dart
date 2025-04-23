@@ -19,6 +19,62 @@ class CartScreen extends ConsumerWidget {
         title: const Text('Shopping Cart'),
         actions: [
           if (items.isNotEmpty)
+            //clear cart btn
+            IconButton(
+              icon: const Icon(Icons.delete_outline),
+              onPressed: () {
+                ref.read(cartProvider.notifier).clear();
+              },
+            ),
+        ],
+      ),
+      body: items.isEmpty
+          ? const Center(
+              child: Text(
+                'Your cart is empty',
+                style: TextStyle(fontSize: 18),
+              ),
+            )
+          : ListView.builder(
+              padding: const EdgeInsets.all(8.0),
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                final item = items[index];
+                return Card(
+                  margin: const EdgeInsets.symmetric(vertical: 4.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListTile(
+                      leading: Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Icon(
+                          Icons.image,
+                          size: 30,
+                          color: Colors.grey[400],
+                        ),
+                      ),
+                      title: Text(
+                        item.product.name,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 4),
+                          Text('\$${item.product.price.toStringAsFixed(2)}'),
+                          const SizedBox(height: 4),
+                          Text('Quantity: ${item.quantity}'),
+                        ],
+                      ),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          
     
 
 
