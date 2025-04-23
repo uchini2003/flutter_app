@@ -81,6 +81,58 @@ class CartScreen extends ConsumerWidget {
                               ref.read(cartProvider.notifier).removeItem(item.product.id);
                             },
                           ),
+                          //add item btn 
+                          IconButton(
+                            icon: const Icon(Icons.add_circle_outline),
+                            onPressed: () {
+                              ref.read(cartProvider.notifier).addItem(item.product);
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+          ),
+          //show total and checkout btn
+      bottomNavigationBar: items.isEmpty
+          ? null
+          : BottomAppBar(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Total: \$${cart.totalPrice.toStringAsFixed(2)}',
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Checkout feature coming soon!'),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Theme.of(context).primaryColor,
+                        foregroundColor: Colors.white,
+                      ),
+                      child: const Text('Checkout'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+    );
+  }
+}
+
     
 
 
