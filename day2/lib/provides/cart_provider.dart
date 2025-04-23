@@ -25,3 +25,24 @@ class CartState {
   }
 }
 
+//manages cart state
+class CartNotifier extends StateNotifier<CartState> {
+  CartNotifier() : super(CartState());
+  
+  //add product
+  void addItem(Product product) {
+    final items = {...state.items};
+    
+    if (items.containsKey(product.id)) {
+      //increase qty if product already in cart
+      items[product.id] = items[product.id]!.copyWith(
+        quantity: items[product.id]!.quantity + 1,
+      );
+    } else {
+      //add new product to cart
+      items[product.id] = CartItem(product: product);
+    }
+    
+    state = state.copyWith(items: items);
+  }
+
