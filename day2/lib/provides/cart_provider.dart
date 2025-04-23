@@ -46,3 +46,22 @@ class CartNotifier extends StateNotifier<CartState> {
     state = state.copyWith(items: items);
   }
 
+  // remove product from cart
+  void removeItem(String productId) {
+    final items = {...state.items};
+    
+    if (items.containsKey(productId)) {
+      if (items[productId]!.quantity > 1) {
+        //if more than 1 dec qty
+        items[productId] = items[productId]!.copyWith(
+          quantity: items[productId]!.quantity - 1,
+        );
+      } else {
+        //if qty is 1 remove item completely
+        items.remove(productId);
+      }
+    }
+    
+    state = state.copyWith(items: items);
+  }
+
