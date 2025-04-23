@@ -1,4 +1,4 @@
-# day1
+# myShopApp
 
 A new Flutter project.
 
