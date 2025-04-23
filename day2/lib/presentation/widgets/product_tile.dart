@@ -1,4 +1,6 @@
+import 'package:day2/providers/cart_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../screens/home_screen.dart';
 
 //updated to consumerwidget for riverpod
@@ -11,7 +13,7 @@ class ProductTile extends ConsumerWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+    Widget build(BuildContext context, WidgetRef ref) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8.0),
       elevation: 2.0,
@@ -69,10 +71,13 @@ class ProductTile extends ConsumerWidget {
                 ],
               ),
             ),
-            //Add to cart btn and show msg
+            //updated to use cart provider
             IconButton(
               icon: const Icon(Icons.add_shopping_cart),
               onPressed: () {
+                //add item to cart using provider
+                ref.read(cartProvider.notifier).addItem(product);
+                
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text('${product.name} added to cart'),
