@@ -1,5 +1,7 @@
+import 'package:day2/providers/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart'; // Added auto_route import
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../widgets/product_tile.dart';
 
 //store product info
@@ -65,29 +67,57 @@ final productsProvider = Provider<List<Product>>((ref) {
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
-//changed to ConsumerWidget for Riverpod
-@RoutePage()
-class HomeScreen extends ConsumerWidget {
-  const HomeScreen({super.key});
-
   @override
-  Widget build(BuildContext context) {
+  // Added WidgetRef parameter for Riverpod
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Get products from provider
+    final products = ref.watch(productsProvider);
+    // Get cart state from provider 
+    final cart = ref.watch(cartProvider);
+    
     return Scaffold(
-      //cart btn top bar
       appBar: AppBar(
         title: const Text('My Shop'),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.shopping_cart),
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Cart feature coming soon!')),
-              );
-            },
+          // Updated cart button with badge
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              IconButton(
+                icon: const Icon(Icons.shopping_cart),
+                onPressed: () {
+                  // Navigate to cart screen
+                  context.router.push(const CartRoute());
+                },
+              ),
+              if (cart.totalQuantity > 0)
+                Positioned(
+                  top: 5,
+                  right: 5,
+                  child: Container(
+                    padding: const EdgeInsets.all(2.0),
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    constraints: const BoxConstraints(
+                      minWidth: 16,
+                      minHeight: 16,
+                    ),
+                    child: Text(
+                      '${cart.totalQuantity}',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 10,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+            ],
           ),
         ],
       ),
-      //List down products
       body: ListView.builder(
         padding: const EdgeInsets.all(8.0),
         itemCount: products.length,
