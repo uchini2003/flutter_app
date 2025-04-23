@@ -74,7 +74,13 @@ class CartScreen extends ConsumerWidget {
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          
+                          //remove item btn
+                          IconButton(
+                            icon: const Icon(Icons.remove_circle_outline),
+                            onPressed: () {
+                              ref.read(cartProvider.notifier).removeItem(item.product.id);
+                            },
+                          ),
     
 
 
