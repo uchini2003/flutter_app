@@ -6,6 +6,14 @@ class CartItem {
   final int quantity;
 
   CartItem({required this.product, required this.quantity = 1});
+    
+    CartItem copyWith({int? quantity}) {
+    return CartItem(
+      product: product,
+      quantity: quantity ?? this.quantity,
+    );
+  }
 
-
+  //item total price 
+  double get totalPrice => product.price * quantity;
 }
