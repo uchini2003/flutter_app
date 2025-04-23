@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'router/app_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-
-  //Updated main.dart to use auto_route instead of direct navigation
+//Updated main.dart to use auto_route instead of direct navigation
 void main() {
-  runApp(MyApp());
+  runApp(
+    // added ProviderScope for riverpod state management
+    ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
+
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
