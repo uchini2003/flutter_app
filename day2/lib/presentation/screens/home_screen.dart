@@ -19,42 +19,38 @@ class Product {
   });
 }
 
-// Added annotation for auto_route
-@RoutePage()
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  // product list
-  final List<Product> products = const [
-    Product(
+//static product list for mock data
+final productsProvider = Provider<List<Product>>((ref) {
+  return [
+    const Product(
       id: '1',
       name: 'Smartphone',
       description: 'Latest generation smartphone with top features',
       price: 699.99,
       imageUrl: 'assets/images/smartphone.png',
     ),
-    Product(
+    const Product(
       id: '2',
       name: 'Laptop',
       description: 'High-performance laptop for work and play',
       price: 1299.99,
       imageUrl: 'assets/images/laptop.png',
     ),
-    Product(
+    const Product(
       id: '3',
       name: 'Headphones',
       description: 'Noise-cancelling wireless headphones',
       price: 199.99,
       imageUrl: 'assets/images/headphones.png',
     ),
-    Product(
+    const Product(
       id: '4',
       name: 'Smart Watch',
       description: 'Track your fitness and stay connected',
       price: 249.99,
       imageUrl: 'assets/images/smartwatch.png',
     ),
-    Product(
+    const Product(
       id: '5',
       name: 'Tablet',
       description: 'Portable tablet for entertainment and productivity',
@@ -62,6 +58,7 @@ class HomeScreen extends StatelessWidget {
       imageUrl: 'assets/images/tablet.png',
     ),
   ];
+});
 
   @override
   Widget build(BuildContext context) {

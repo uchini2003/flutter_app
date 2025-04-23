@@ -2,6 +2,9 @@ import 'package:day2/providers/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../screens/home_screen.dart';
+import '../../providers/cart_provider.dart';
+import '../../router/app_router.gr.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart'; 
 
 //updated to consumerwidget for riverpod
 class ProductTile extends ConsumerWidget {
