@@ -10,5 +10,15 @@ class CartScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    //get cart state from provider
+    final cart = ref.watch(cartProvider);
+    final items = cart.items.values.toList();
+    
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Shopping Cart'),
+        actions: [
+          if (items.isNotEmpty)
+    
 
 
