@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../screens/home_screen.dart';
 
-//depicts one product in list
-class ProductTile extends StatelessWidget {
+//updated to consumerwidget for riverpod
+class ProductTile extends ConsumerWidget {
   final Product product;
 
   const ProductTile({
