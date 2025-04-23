@@ -60,6 +60,16 @@ final productsProvider = Provider<List<Product>>((ref) {
   ];
 });
 
+//changed to ConsumerWidget for Riverpod
+@RoutePage()
+class HomeScreen extends ConsumerWidget {
+  const HomeScreen({super.key});
+
+//changed to ConsumerWidget for Riverpod
+@RoutePage()
+class HomeScreen extends ConsumerWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
