@@ -10,7 +10,7 @@ controls how the app behaves.It listens to user actions and updates the app stat
 
 What’s inside
 
-State Motifiers : control the app’s state(loading, success, error)
+State Modifiers : control the app’s state(loading, success, error)
 Providers : Riverpod’s way to inject dependencies
 State Classes : Hold the state data (made with freezed)
 
@@ -83,7 +83,7 @@ auto route is used for easy navigation
 flutter hooks and riverpod for state management
 flutter screeen util for making the app responsive
 
-Utils
+- Utils
 
 helper tools used throughout the app
 
@@ -94,8 +94,19 @@ FailureUtils : Converts error types to user-friendly messages
 LogUtils : For printing debug codes
 StringExtensions : Handy string functions
 
-Login Process
+## Login Process
 User fills login form
 Application Layer calls the login function
 Infrastructure Layer makes an API call to the server
-Domain Layer checks if the response is valid and returns success or failure
+Domain Layer checks if the response is valid and returns success or failure.
+
+## Error handling Process
+
+typed errors - NetworkFailure, AuthenticationFailure
+Either Type - Either<Failure, Success?
+Option Type - for values that might be missing
+Failure State - central place that keeps track of app errors
+
+
+
+
