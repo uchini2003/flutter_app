@@ -41,3 +41,22 @@ i_authentication repository.dart - interface that says what login should do
 
 This part is reusable and doesn’t change often
 This layer only users pure dart code, no flutter stuff.It also uses a library called dartz for smart error handling.
+
+- Infrastructure
+
+This part talks to the internet, local storage, external services and real systems like firebase or a server, internet check shared preferences.
+
+What’s inside
+
+Repositories : Actual code that fetches data (like API calls )
+DTOs : Translates data from API into your app format
+API Helpers : Makes API calls easier
+Local Storage : Stores data locally (like tokens)
+
+authentication_repository.dart - sends login request
+Login_response_dto.dart - gets data from API and turns it into dart
+Api_helper.dart - helps make network calls
+Local_repository.dart - stores small data locally(like tokens)
+
+Gives real data to the app
+dio is used for making HTTP requests and flutter secure storage to store data like tokens safely.
