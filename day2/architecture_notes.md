@@ -60,3 +60,25 @@ Local_repository.dart - stores small data locally(like tokens)
 
 Gives real data to the app
 dio is used for making HTTP requests and flutter secure storage to store data like tokens safely.
+
+- Presentation
+
+This is the user interface, what the user sees and interacts with
+
+What’s inside
+
+Pages : Full Screens (login page, home page)
+Widgets : Reusable UI parts (login form)
+Routes : how you move between pages
+Styles and constants : colors,fonts etc
+
+Login_page.dart - user login screen
+Home_page.dart - main dashboard
+Navbar_page.dart -  bottom navigation bar
+custom_textfield.dart - a styled input box
+Featured_products.dart - UI card showing products
+
+users interact with this part directly.
+auto route is used for easy navigation
+flutter hooks and riverpod for state management
+flutter screeen util for making the app responsive
