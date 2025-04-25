@@ -23,3 +23,21 @@ Core/failure - handles app errors
 Internet connectivity/ checks if we are online
 
 This part listens for actions and tells the app what to do
+
+- Domain Layer
+Holds the core logic,data models and rules for how things should work
+doesn’t know anything about flutter UI’s or API’s
+
+What’s inside 
+
+Value Objects : Check and hold special data like email or phone numbers.
+Entities : Main items like Product
+Failures : Different. ypes of errors like network errors or validation errors
+
+Value_objects.dart - rules for data (like valid email or password)
+Login_request.dart - data sent to log in 
+Product.dart - Information about a product
+i_authentication repository.dart - interface that says what login should do
+
+This part is reusable and doesn’t change often
+This layer only users pure dart code, no flutter stuff.It also uses a library called dartz for smart error handling.
