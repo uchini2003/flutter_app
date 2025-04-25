@@ -82,3 +82,20 @@ users interact with this part directly.
 auto route is used for easy navigation
 flutter hooks and riverpod for state management
 flutter screeen util for making the app responsive
+
+Utils
+
+helper tools used throughout the app
+
+What’s inside:
+
+AppInfo : Gets info about the app/device
+FailureUtils : Converts error types to user-friendly messages
+LogUtils : For printing debug codes
+StringExtensions : Handy string functions
+
+Login Process
+User fills login form
+Application Layer calls the login function
+Infrastructure Layer makes an API call to the server
+Domain Layer checks if the response is valid and returns success or failure
