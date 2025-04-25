@@ -1,0 +1,1 @@
+{"routes":[{"name":null,"pathParams":[],"pageType":{"import":"package:day2/presentation/screens/cart_screen.dart","name":"CartScreen","isNullable":false,"isRecordType":false},"className":"CartScreen","parameters":[],"hasWrappedRoute":false,"hasConstConstructor":true,"deferredLoading":null}],"inputPath":"lib/presentation/screens/cart_screen.dart","inputHash":0}
