@@ -22,3 +22,12 @@ class AppStateNotifier extends StateNotifier<AppState> {
     featureName: "AppStateNotifier",
     printLog: true,
   );
+
+  // Local storage access
+  final ILocalRepository _localRepository;
+
+  @override
+  void dispose() {
+    _logUtils.log("dispose"); // Print a log when this is destroyed
+    super.dispose();
+  }
