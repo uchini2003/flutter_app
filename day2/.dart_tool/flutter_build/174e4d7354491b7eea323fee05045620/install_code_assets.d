@@ -1,0 +1,1 @@
+ /Users/uchini/Documents/GitHub/flutter_app/day2/.dart_tool/flutter_build/174e4d7354491b7eea323fee05045620/native_assets.json: 
