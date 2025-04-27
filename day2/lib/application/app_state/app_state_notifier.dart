@@ -31,3 +31,44 @@ class AppStateNotifier extends StateNotifier<AppState> {
     _logUtils.log("dispose"); // Print a log when this is destroyed
     super.dispose();
   }
+
+    // This function runs when the app starts
+  Future<void> appStart() async {
+    _logUtils.log("appStart :: before state : $state");
+
+    // First, show loading
+    state = state.copyWith(
+      isLoading: true,
+      isAppStarted: none(),
+    );
+
+    // Check if user is logged in (from local storage)
+    final isLoggedIn = (await _localRepository.read(StorageKeys.isLoggedIn))
+        .getOrElse(() => false.toString())
+        .toBool();
+
+    if (!isLoggedIn) {
+      // If not logged in, stop loading and update state
+      state = state.copyWith(
+        isLoading: false,
+        loggedIn: false,
+        isAppStarted: some(true),
+      );
+      _logUtils.log("appStart :: after state !isLoggedIn : $state");
+      return;
+    } else {
+      // If logged in, get the saved token
+      final token =
+          (await _localRepository.read(StorageKeys.token)).getOrElse(() => '');
+
+      // Update state with login info
+      state = state.copyWith(
+        isLoading: false,
+        loggedIn: isLoggedIn,
+        accessToken: token,
+        isAppStarted: some(true),
+      );
+
+      _logUtils.log("appStart :: after state : $state");
+    }
+  }
