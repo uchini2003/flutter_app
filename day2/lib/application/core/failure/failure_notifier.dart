@@ -65,3 +65,32 @@ class FailureStateNotifier extends StateNotifier<FailureState> {
       },
     );
   }
+
+    void dismissFailure(Failure failure) {
+    _logUtils.log("dismissFailure : failure : $failure");
+
+    state = state.copyWith(
+      failureList: state.failureList.minusElement(failure),
+      latestFailure: none(),
+      failureNotified: false,
+    );
+  }
+
+  void _notifyFailure(Failure failure) {
+    state = state.copyWith(
+      latestFailure: none(),
+    );
+
+    final failureList = state.failureList;
+
+    if (!failureList.contains(failure)) {
+      _logUtils.log("handleFailure : latestFailure : $failure ");
+
+      state = state.copyWith(
+        latestFailure: optionOf(failure),
+        failureList: state.failureList.plusElement(failure),
+        failureNotified: true,
+      );
+    }
+  }
+}
