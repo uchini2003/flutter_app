@@ -16,3 +16,9 @@ class AppStateNotifier extends StateNotifier<AppState> {
   AppStateNotifier(this._localRepository) : super(AppState.initial()) {
     _logUtils.log("init"); // Print a log when this is created
   }
+
+  // Set up logging
+  static final LogUtils _logUtils = LogUtils(
+    featureName: "AppStateNotifier",
+    printLog: true,
+  );
