@@ -15,3 +15,12 @@ class CartState with _$CartState {
   factory CartState.initial() => const CartState(
     items: {},
   );
+
+    double get totalPrice {
+    return items.values.fold(0, (total, item) => total + item.totalPrice);
+  }
+
+  int get totalQuantity {
+    return items.values.fold(0, (total, item) => total + item.quantity);
+  }
+}
