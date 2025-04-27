@@ -12,3 +12,11 @@ class AppState with _$AppState {
     required Option<bool> isAppStarted,
     required bool isLoading,
   }) = _AppState;
+
+    factory AppState.initial() => AppState(
+    loggedIn: false,
+    accessToken: '',
+    isAppStarted: none(),
+    isLoading: false,
+  );
+}
