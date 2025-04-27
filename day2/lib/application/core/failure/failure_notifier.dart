@@ -14,3 +14,54 @@ class FailureStateNotifier extends StateNotifier<FailureState> {
       _logUtils.log("init");
     }
   }
+
+    static final LogUtils _logUtils = LogUtils(
+    featureName: "FailureStateNotifier",
+    printLog: true,
+  );
+
+  @override
+  void dispose() {
+    _logUtils.log("dispose");
+    super.dispose();
+  }
+
+  void handleFailure(Failure failure) {
+    _logUtils.log("handleFailure : failure : $failure");
+
+    failure.maybeWhen(
+      orElse: () {
+        _notifyFailure(failure);
+      },
+      core: (core) {
+        core.maybeWhen(
+          orElse: () {
+            _notifyFailure(failure);
+          },
+          serverError: (message) async {
+            if (message == 'Dio Error') {
+              const networkFailure = Failure.network(NetworkFailure.timeout());
+
+              if (!state.failureNotified) {
+                _notifyFailure(networkFailure);
+              }
+            } else if (message == 'No Network') {
+              const noInternetFailure =
+                  Failure.network(NetworkFailure.noInternet());
+              // Do nothing , Showing no network app bar
+              _notifyFailure(noInternetFailure);
+            } else if (message == 'Not authenticated' || message == '403') {
+              const authFailure =
+                  Failure.authentication(AuthenticationFailure());
+              _notifyFailure(authFailure);
+            } else {
+              _notifyFailure(failure);
+            }
+          },
+          ignoreWarning: () {
+            // Do nothing
+          },
+        );
+      },
+    );
+  }
