@@ -72,3 +72,41 @@ class AppStateNotifier extends StateNotifier<AppState> {
       _logUtils.log("appStart :: after state : $state");
     }
   }
+
+    // This function runs when user logs in successfully
+  Future<void> loginSuccess() async {
+    _logUtils.log("login success");
+
+    // Save login info in local storage
+    await _localRepository.createOrUpdate(
+        StorageKeys.isLoggedIn, true.toString());
+
+    // Save a mock token (in real app, this would come from server)
+    await _localRepository.createOrUpdate(
+        StorageKeys.token, "mock_user_token_123");
+
+    // Update app state
+    state = state.copyWith(
+      loggedIn: true,
+      accessToken: "mock_user_token_123",
+      isAppStarted: some(true),
+    );
+
+    // Navigate to the home screen
+    App.appRouter.replaceAll(
+      const [
+        HomeRoute(),
+      ],
+    );
+  }
+
+  Future<void> logout() async {
+    await _localRepository.deleteLogin();
+    
+    state = state.copyWith(
+      loggedIn: false,
+      accessToken: '',
+      isAppStarted: some(true),
+    );
+  }
+}
