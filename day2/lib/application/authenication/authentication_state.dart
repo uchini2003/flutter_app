@@ -13,3 +13,12 @@ class AuthenticationState with _$AuthenticationState {
     required Option<bool> responseData,
     required Option<Failure> responseFailure,
   }) = _AuthenticationState;
+
+  factory AuthenticationState.initial() => AuthenticationState(
+    isLoading: false,
+    email: "",
+    password: "",
+    responseData: none(),
+    responseFailure: none(),
+  );
+}
