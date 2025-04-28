@@ -41,3 +41,4 @@ class AuthenticationFailure with _$AuthenticationFailure {
   const factory AuthenticationFailure.tokenExpired() = _TokenExpired;
 }
 
+//organizes different kinds of errors nicely so your app can know exactly what went wrong and handle it easily.
