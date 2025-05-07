@@ -1,1 +1,0 @@
-{"routes":[{"name":null,"pathParams":[],"pageType":{"import":"package:day2/presentation/screens/login_screen.dart","name":"LoginScreen","isNullable":false,"isRecordType":false},"className":"LoginScreen","parameters":[],"hasWrappedRoute":false,"hasConstConstructor":true,"deferredLoading":null}],"inputPath":"lib/presentation/screens/login_screen.dart","inputHash":0}

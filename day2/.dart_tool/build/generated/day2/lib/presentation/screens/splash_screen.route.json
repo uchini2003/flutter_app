@@ -1,1 +1,0 @@
-{"routes":[{"name":null,"pathParams":[],"pageType":{"import":"package:day2/presentation/screens/splash_screen.dart","name":"SplashScreen","isNullable":false,"isRecordType":false},"className":"SplashScreen","parameters":[],"hasWrappedRoute":false,"hasConstConstructor":true,"deferredLoading":null}],"inputPath":"lib/presentation/screens/splash_screen.dart","inputHash":0}
