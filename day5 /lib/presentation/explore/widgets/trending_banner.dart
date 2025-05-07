@@ -10,7 +10,7 @@ class TrendingBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      height: 130,
+      height: 150,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
